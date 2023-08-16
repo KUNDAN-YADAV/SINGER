@@ -16,7 +16,7 @@ int main()
 	struct singer si;
 	FILE *fptr,*fptrTemp;
 	char singer_name[15];
-	char choice,fileName[25]="c://santosh/singer.txt";
+	char choice,fileName[25]="c://kundan/singer.txt";
 	int dataFound=0,recordNo=0;
 	fptr=fopen(fileName,"r+b");
 	if(fptr==NULL)
@@ -130,7 +130,7 @@ int main()
 			printf("\nEnter name of singer to be deleted: ");
 			fflush(stdin);
 			scanf("%s",singer_name);
-			fptrTemp=fopen("c://santosh/temp.txt","wb");
+			fptrTemp=fopen("c://kundan/temp.txt","wb");
 			rewind(fptr);
 			while(fread(&si,sizeof(si),1,fptr)==1)
 			{
@@ -145,7 +145,7 @@ int main()
 			fclose(fptr);
 			fclose(fptrTemp);
 			remove(fileName);
-			rename("c://santosh/temp.txt",fileName);
+			rename("c://kundan/temp.txt",fileName);
 			fptr=fopen(fileName,"r+b");
 			if(dataFound==0)
 				printf("NO Data found\n");
@@ -154,11 +154,11 @@ int main()
 			break;
 
 			case '6':
-            fptrTemp=fopen("c://santosh/temp.txt","wb");
+            fptrTemp=fopen("c://kundan/temp.txt","wb");
             fclose(fptr);
             fclose(fptrTemp);
 			remove(fileName);
-			rename("c://santosh/temp.txt",fileName);
+			rename("c://kundan/temp.txt",fileName);
 			fptr=fopen(fileName,"r+b");
 			printf("\nSuccessfully deleted......\n");
 			break;
